@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+body {
+    background-color: rgb(21, 21, 21);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+}
+header h1 {
+    text-align: center;
+    font-size: 14px;
+}
+
+section {
+
+    border: 1px solid rgb(39, 39, 39);
+    padding-bottom: 20px;
+}
+
+section #timer {
+
+    text-align: center;
+}
+
+section #timer #time {
+
+    font-size: 60px;
+}
+
