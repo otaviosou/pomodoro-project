@@ -14,12 +14,12 @@
         <section>
             <div id="timer">
                 <div id="time">
-                    <span>00:00</span>
+                    <span id="minutes">00</span>:<span id="seconds">05</span>
                 </div>
                 <div id="controlls">
-                    <button>Play</button> 
-                    <button>Pause</button> 
-                    <button>Reset</button> 
+                    <button id="play">Play</button> 
+                    <button id="pause">Pause</button> 
+                    <button id="reset">Reset</button> 
                 </div>
             </div>
             <div id="timers">
@@ -27,5 +27,11 @@
             </div>
         </section>
     </main>
+
+    <script src="./model/Time.js"></script>
+    <script src="./view/View.js"></script>
+    <script src="./view/TimeView.js"></script>
+    <script src="./controller/Controller.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
