@@ -26,8 +26,11 @@ class Controller{
 
                 if (this.time.minutes === 0 && this.time.seconds === 0) {
 
-                    this.time.minutes = this.changeValue
-                    this.view.update(this.time)
+                    this.sound()
+                    setTimeout(() => {
+                        this.time.minutes = this.changeValue
+                        this.view.update(this.time)
+                    }, 2000)
                     clearInterval(this.count)
                 }
                 else if (this.time.seconds === 0){
@@ -59,5 +62,9 @@ class Controller{
     }
     
 
+    sound(){
 
+        let audio = new Audio('http://soundbible.com/mp3/glass_ping-Go445-1207030150.mp3')
+        audio.play()
+    }
 }
