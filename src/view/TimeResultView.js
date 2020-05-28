@@ -13,6 +13,7 @@ class TimeResultView extends View{
         </header>
         <ul>
             ${model.map(item => {
+
                 return `
                     <li>
                         <span>${item._minutes}:${item._seconds}</span>

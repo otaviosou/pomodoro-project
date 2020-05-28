@@ -12,8 +12,8 @@ class Controller{
             minutes: 25,
             seconds: 0
         }
-        TimeDao.show().then(list => this.timeResultView.update(list))
-        
+
+        if (localStorage.length !=0 ) TimeDao.show().then(list => this.timeResultView.update(list))
     }
 
 
@@ -89,13 +89,18 @@ class Controller{
 
     createTimes(){
 
-        //return TimeDao.store(model).then(item => console.log(item))
         return new Promise((res, rej) => {
             this.timeFactory.addList(this.time)
             res(this.timeFactory.list)
         })
         
-        //return this.timeFactory.addList(model).then(() => this.timeFactory.list)
-
     }
+    
+    del(){
+
+        log('hello')
+        
+    }
+
+
 }
