@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <title>Pomodoro</title>
 </head>
@@ -14,24 +15,31 @@
         <section>
             <div id="timer">
                 <div id="time">
-                    <span id="minutes">00</span>:<span id="seconds">10</span>
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
                 </div>
                 <div id="controlls">
-                    <button id="play">Play</button> 
-                    <button id="pause">Pause</button> 
-                    <button id="reset">Reset</button> 
+                    <a id="play">
+                        <img src="./img/play.svg" alt="">
+                    </a> 
+                    <a id="pause">
+                        <img src="./img/pause.svg" alt="">
+                    </a> 
+                    <a id="stop">
+                        <img src="./img/stop.svg" alt="">
+                    </a> 
+
                 </div>
             </div>
-            <div id="timers">
-
-            </div>
+            <div id="times"></div>
         </section>
     </main>
 
     <script src="./model/Time.js"></script>
     <script src="./view/View.js"></script>
-    <script src="./view/TimeView.js"></script>
+    <script src="./view/TimeResultView.js"></script>
     <script src="./controller/Controller.js"></script>
+    <script src="dao/TimeDao.js"></script>
+    <script src="factory/TimeFactory.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

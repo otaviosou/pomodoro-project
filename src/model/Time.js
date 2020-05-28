@@ -1,8 +1,9 @@
 class Time {
     
-    constructor(minutes=0, seconds=0){
+    constructor(minutes=0, seconds=0, id=""){
         this._minutes = minutes
         this._seconds = seconds
+        this._id = id
     }
 
     get minutes(){
@@ -23,6 +24,11 @@ class Time {
     set seconds(seconds){
 
         return this._seconds = seconds
+    }
+
+    get id(){
+
+        return this._id
     }
 
 }

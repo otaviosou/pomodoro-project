@@ -7,14 +7,17 @@ body {
     margin: 0 auto;
 }
 header h1 {
+    padding: 20px;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 section {
 
+    margin-top: 30px;
     border: 1px solid rgb(39, 39, 39);
-    padding-bottom: 20px;
+    padding: 50px;
+
 }
 
 section #timer {
@@ -27,3 +30,54 @@ section #timer #time {
     font-size: 60px;
 }
 
+#times{
+
+    margin-top: 50px;
+    border: 1px solid rgb(39, 39, 39);
+}
+
+ul{
+    padding: 20px;
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+header h2 {
+
+    padding: 10px;
+    background-color: rgb(25, 25, 25);
+    font-size: 14px;
+    border-bottom: 1px solid rgb(39, 39, 39);
+}
+
+ul li {
+
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+li:hover{
+
+    background-color: rgb(25, 25, 25);
+    color: rgb(228, 225, 225);
+    
+}
+
+#controlls{
+
+    margin-top: 10px;
+}
+
+#controlls img{
+    cursor: pointer;
+    margin: 4px;
+}
+
+.invisible {
+
+    display: none;
+}
