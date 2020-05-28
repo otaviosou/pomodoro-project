@@ -17,9 +17,7 @@ class TimeResultView extends View{
                 return `
                     <li>
                         <span>${item._minutes}:${item._seconds}</span>
-                        <a>
-                            <img src="./img/del.svg">
-                        </a>
+                        <a key=${item._id} onclick="controller.del(event)"></a>
                     </li>
                 `
             }).join('')}

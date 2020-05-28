@@ -67,6 +67,13 @@ li:hover{
     
 }
 
+
+ul li a {
+    background-image: url('./img/del.svg');
+    width: 14px;
+    height: 14px;
+}
+
 #controlls{
 
     margin-top: 10px;

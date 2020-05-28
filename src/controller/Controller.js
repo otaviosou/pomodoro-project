@@ -12,7 +12,6 @@ class Controller{
             minutes: 25,
             seconds: 0
         }
-
         if (localStorage.length !=0 ) TimeDao.show().then(list => this.timeResultView.update(list))
     }
 
@@ -96,10 +95,13 @@ class Controller{
         
     }
     
-    del(){
+    del(event){
 
-        log('hello')
-        
+        let id = event.target.getAttribute('key')
+        TimeDao.destroy(id)
+            .then(list => {
+                this.timeResultView.update(list)
+            })
     }
 
 
