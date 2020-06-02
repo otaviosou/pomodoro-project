@@ -6,18 +6,24 @@ class Controller{
         this.count
         this.view = new View(document.querySelector('#time'))
         this.changeValue
-        this.timeFactory = new TimeFactory()
         this.timeResultView = new TimeResultView(document.querySelector('#times'))
         this.timeInput = {
             minutes: 25,
             seconds: 0
         }
-        if (localStorage.length !=0 ) TimeDao.show().then(list => this.timeResultView.update(list))
+        if (localStorage.length !=0 ) TimeDao.show()
+            .then(list => {
+                this.timeResultView.update(list)
+            })    
+
     }
 
 
     play() {
 
+        //let controllsView = new ControllsView(document.querySelector('#controlls'))
+        //controllsView.update()
+        //HandleButton.toggle('#play')
         const minutes = Number(document.querySelector('#time #minutes').innerText)
         const seconds = Number(document.querySelector('#time #seconds').innerText)
 
@@ -37,6 +43,7 @@ class Controller{
                         this.time.minutes = this.changeValue
                         if (this.changeValue === 25) this.createTimes(this.time)
                         this.view.update(this.time)
+                        HandleButton.show('#play')
                     }, 2000)
                     clearInterval(this.count)
                     
@@ -59,22 +66,19 @@ class Controller{
     pause(){
 
         this.count = clearInterval(this.count)
-    }
+        //HandleButton.toggle('#pause')
 
-    reset(){
-
-        this.pause()
-        this.view.update(this.timeInput)
     }
 
     stop(){
 
-        this.createTimes()
-            .then(list => TimeDao.store(list))
+
+        TimeDao.store(this.time)
             .then(getList => this.timeResultView.update(getList))
 
-        this.pause()
+        this.count = clearInterval(this.count)
         this.view.update(this.timeInput)
+        
 
     }
     
@@ -86,14 +90,6 @@ class Controller{
     }
 
 
-    createTimes(){
-
-        return new Promise((res, rej) => {
-            this.timeFactory.addList(this.time)
-            res(this.timeFactory.list)
-        })
-        
-    }
     
     del(event){
 
@@ -103,6 +99,8 @@ class Controller{
                 this.timeResultView.update(list)
             })
     }
+
+
 
 
 }

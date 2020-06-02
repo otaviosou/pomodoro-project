@@ -13,7 +13,7 @@ class View {
     }
 
 
-    update(model){
+    update(model=""){
 
         return this._element.innerHTML = this._template(model)
     }

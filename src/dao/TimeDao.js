@@ -2,10 +2,18 @@ class TimeDao{
 
 
     static store(model){
-
+        
         return new Promise((res, rej) => {
 
-            localStorage.setItem('getList', JSON.stringify(model))
+            let array = []
+            if(localStorage.length != 0) {
+                array = JSON.parse(localStorage.getList)
+                array.push(model)
+            }
+            else{
+                array.push(model)
+            }
+            localStorage.setItem('getList', JSON.stringify(array))
             res(JSON.parse(localStorage.getList))
         })
     }
