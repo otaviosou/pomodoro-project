@@ -8,11 +8,9 @@ class TimeDao{
             let array = []
             if(localStorage.length != 0) {
                 array = JSON.parse(localStorage.getList)
-                array.push(model)
             }
-            else{
-                array.push(model)
-            }
+            array.push(model)
+
             localStorage.setItem('getList', JSON.stringify(array))
             res(JSON.parse(localStorage.getList))
         })

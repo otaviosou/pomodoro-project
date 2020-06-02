@@ -89,3 +89,8 @@ ul li a {
     pointer-events: none;
     opacity: 0.1;
 }
+
+.testControlls {
+
+    border: 1px solid red;
+}

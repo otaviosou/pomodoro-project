@@ -5,15 +5,40 @@ class ControllsView extends View{
         super(element)
     }
 
-    _template(){
+    _template(model){
 
-        const arrayTags = ['play', 'pause', 'stop']
-        //let tagId = arrayTags.find(item => item === model)
+        const classToggle = 'invisible'
+
+        let arrayTags = [
+            {
+                id: 'play',
+                tagClass: ''
+            }, 
+            {
+                id: 'pause',
+                tagClass: ''
+            }, {
+                id: 'stop',
+                tagClass: ''
+            }
+        ]
+
+        if(model === 'stop'){
+            arrayTags.map(item => {
+                item.id === 'pause'? item.tagClass = `class=${classToggle}` : item.tagClass
+            })
+        }
+
+        arrayTags
+            .filter(item => item.id === model)
+            .map(element => element.tagClass = `class=${classToggle}`)
+
+
         return `
             ${arrayTags.map(item => {
                 return `
-                    <a id=${item} onclick="controller.${item}()">
-                        <img src="./img/${item}.svg" alt="">
+                    <a id=${item.id} onclick="controller.${item.id}()" ${item.tagClass}>
+                        <img src="./img/${item.id}.svg" alt="">
                     </a> 
                 `
             }).join('')}

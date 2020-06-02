@@ -21,9 +21,8 @@ class Controller{
 
     play() {
 
-        //let controllsView = new ControllsView(document.querySelector('#controlls'))
-        //controllsView.update()
-        //HandleButton.toggle('#play')
+        let controllsView = new ControllsView(document.querySelector('#controlls'))
+        controllsView.update('play')
         const minutes = Number(document.querySelector('#time #minutes').innerText)
         const seconds = Number(document.querySelector('#time #seconds').innerText)
 
@@ -65,14 +64,16 @@ class Controller{
 
     pause(){
 
+        let controllsView = new ControllsView(document.querySelector('#controlls'))
+        controllsView.update('pause')
         this.count = clearInterval(this.count)
-        //HandleButton.toggle('#pause')
 
     }
 
     stop(){
 
-
+        let controllsView = new ControllsView(document.querySelector('#controlls'))
+        controllsView.update('stop')
         TimeDao.store(this.time)
             .then(getList => this.timeResultView.update(getList))
 
