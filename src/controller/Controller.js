@@ -5,12 +5,11 @@ class Controller{
         this.time
         this.count
         this.view = new View(document.querySelector('#time'))
-        this.changeValue
-        this.timeResultView = new TimeResultView(document.querySelector('#times'))
-        this.timeInput = {
-            minutes: 25,
-            seconds: 0
+        this.pomodoro = {
+            minutes : 0,
+            seconds : 0
         }
+        this.timeResultView = new TimeResultView(document.querySelector('#times'))
         if (localStorage.length !=0 ) TimeDao.show()
             .then(list => {
                 this.timeResultView.update(list)
@@ -27,9 +26,9 @@ class Controller{
         const seconds = Number(document.querySelector('#time #seconds').innerText)
 
         this.time = new Time(minutes, seconds, new Date().toJSON()) 
-        
-        if(this.time.minutes === 25) this.changeValue = 5
-        else this.changeValue = 25
+
+        if(this.time.minutes === 25) this.pomodoro.minutes = 25
+        else this.pomodoro.minutes = 5
         
         this.count =
             setInterval(() => {
@@ -38,12 +37,9 @@ class Controller{
 
                     
                     this.sound()
-                    setTimeout(() => {
-                        this.time.minutes = this.changeValue
-                        if (this.changeValue === 25) this.createTimes(this.time)
-                        this.view.update(this.time)
-                        HandleButton.show('#play')
-                    }, 2000)
+                    if(this.pomodoro === 25) this.pomodoro.minutes = 5
+                        else this.pomodoro.minutes = 25
+                        this.stop()
                     clearInterval(this.count)
                     
 
@@ -78,20 +74,15 @@ class Controller{
             .then(getList => this.timeResultView.update(getList))
 
         this.count = clearInterval(this.count)
-        this.view.update(this.timeInput)
-        
-
+        this.view.update(this.pomodoro)
     }
     
-
     sound(){
 
         let audio = new Audio('http://soundbible.com/mp3/glass_ping-Go445-1207030150.mp3')
         audio.play()
     }
-
-
-    
+ 
     del(event){
 
         let id = event.target.getAttribute('key')
@@ -100,8 +91,5 @@ class Controller{
                 this.timeResultView.update(list)
             })
     }
-
-
-
 
 }

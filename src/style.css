@@ -14,7 +14,7 @@ header h1 {
 
 section {
 
-    margin-top: 30px;
+    margin-top: 20px;
     border: 1px solid rgb(39, 39, 39);
     padding: 50px;
 
@@ -22,13 +22,21 @@ section {
 
 section #timer {
 
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 section #timer #time {
 
     font-size: 60px;
 }
+
+.time-count{
+
+    margin-top: 20px;
+}
+
 
 #times{
 
@@ -72,6 +80,7 @@ ul li a {
     background-image: url('./img/del.svg');
     width: 14px;
     height: 14px;
+    margin-left: 15px;
 }
 
 #controlls{
@@ -90,7 +99,19 @@ ul li a {
     opacity: 0.1;
 }
 
-.testControlls {
+#progress {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 
-    border: 1px solid red;
+#progress span {
+
+    margin-right: 15px;
+}
+
+#progress-bar {
+
+    height: 10px;
+    background-color: rgb(224, 224, 224);
 }
