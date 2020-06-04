@@ -1,4 +1,4 @@
-class View {
+export class View {
     constructor(element){
 
         this._element = element
@@ -8,7 +8,7 @@ class View {
 
         let min = ((25 * 60) - (model.minutes * 60)) / 60 - 1
         let sec = 60 - model.seconds
-        let percent = (min * 60 + sec) * 0.05
+        let percent = (min * 60 + sec) * 0.1
         //throw new Error('this method find child class')
         return `
         <div>

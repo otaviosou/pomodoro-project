@@ -1,4 +1,9 @@
-class ControllsView extends View{
+import {View} from '../view/View'
+import play from '../img/play.svg'
+import pause from '../img/pause.svg'
+import stop from '../img/stop.svg'
+
+export class ControllsView extends View{
 
     constructor(element){
 
@@ -12,14 +17,17 @@ class ControllsView extends View{
         let arrayTags = [
             {
                 id: 'play',
-                tagClass: ''
+                tagClass: '',
+                btn: play
             }, 
             {
                 id: 'pause',
-                tagClass: ''
+                tagClass: '',
+                btn: pause
             }, {
                 id: 'stop',
-                tagClass: ''
+                tagClass: '',
+                btn: stop
             }
         ]
 
@@ -37,8 +45,8 @@ class ControllsView extends View{
         return `
             ${arrayTags.map(item => {
                 return `
-                    <a id=${item.id} onclick="controller.${item.id}()" ${item.tagClass}>
-                        <img src="./img/${item.id}.svg" alt="">
+                    <a id=${item.id} onclick="controller.${item.id}.bind(controller)" ${item.tagClass}>
+                        <img src=${item.btn} alt="">
                     </a> 
                 `
             }).join('')}

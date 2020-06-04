@@ -1,3 +1,6 @@
+import './reset.css'
+import './style.css'
+import {Controller} from './controller/Controller'
 let controller = new Controller()
 
 

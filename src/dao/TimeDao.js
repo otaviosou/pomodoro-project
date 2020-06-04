@@ -1,4 +1,4 @@
-class TimeDao{
+export class TimeDao{
 
 
     static store(model){

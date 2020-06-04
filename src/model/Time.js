@@ -1,4 +1,4 @@
-class Time {
+export class Time {
     
     constructor(minutes=0, seconds=0, id=""){
         this._minutes = minutes
