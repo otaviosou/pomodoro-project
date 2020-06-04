@@ -6,7 +6,7 @@ class Controller{
         this.count
         this.view = new View(document.querySelector('#time'))
         this.pomodoro = {
-            minutes : 0,
+            minutes : 25,
             seconds : 0
         }
         this.timeResultView = new TimeResultView(document.querySelector('#times'))
@@ -26,9 +26,6 @@ class Controller{
         const seconds = Number(document.querySelector('#time #seconds').innerText)
 
         this.time = new Time(minutes, seconds, new Date().toJSON()) 
-
-        if(this.time.minutes === 25) this.pomodoro.minutes = 25
-        else this.pomodoro.minutes = 5
         
         this.count =
             setInterval(() => {
@@ -37,9 +34,10 @@ class Controller{
 
                     
                     this.sound()
-                    if(this.pomodoro === 25) this.pomodoro.minutes = 5
-                        else this.pomodoro.minutes = 25
-                        this.stop()
+                    if(this.pomodoro.minutes === 25) this.pomodoro.minutes = 5
+                    else this.pomodoro.minutes = 25
+                    
+                    this.stop()
                     clearInterval(this.count)
                     
 

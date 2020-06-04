@@ -26,7 +26,7 @@ class TimeResultView extends View{
 
                 if (item._minutes != 0 && item._seconds === 0) min++
 
-                let percent = (min * 60 + sec) * 0.15
+                let percent = (min * 60 + sec) * 0.06
 
                 return `
                     <li>
