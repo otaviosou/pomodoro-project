@@ -1,4 +1,7 @@
-class TimeResultView extends View{
+import {View} from '../view/View'
+import '../img/del.svg'
+
+export class TimeResultView extends View{
 
     constructor(element){
 

@@ -1,4 +1,11 @@
-class Controller{
+import {View} from '../view/View'
+import {TimeResultView} from '../view/TimeResultView'
+import {ControllsView} from '../view/ControllsView'
+import {Time} from '../model/Time'
+import {TimeDao} from '../dao/TimeDao'
+
+
+export class Controller{
 
     constructor(){
 
@@ -13,10 +20,9 @@ class Controller{
         if (localStorage.length !=0 ) TimeDao.show()
             .then(list => {
                 this.timeResultView.update(list)
-            })    
-
+            })
+        console.log('clicado')
     }
-
 
     play() {
 
@@ -36,7 +42,7 @@ class Controller{
                     this.sound()
                     if(this.pomodoro.minutes === 25) this.pomodoro.minutes = 5
                     else this.pomodoro.minutes = 25
-                    
+
                     this.stop()
                     clearInterval(this.count)
                     
