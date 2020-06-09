@@ -1,6 +1,7 @@
 import {View} from '../view/View'
 import '../img/del.svg'
 
+
 export class TimeResultView extends View{
 
     constructor(element){
@@ -9,7 +10,6 @@ export class TimeResultView extends View{
     }
 
     _template(model){
-
 
 
         return `
@@ -37,7 +37,7 @@ export class TimeResultView extends View{
                             <span>${min < 10 ? 0 : ''}${min}:${sec < 10 ? 0 : ''}${sec}</span>
                             <div id="progress-bar" style="width: ${percent}%;"></div>
                         </div>
-                        <a key=${item._id} onclick="controller.del(event)"></a>
+                        <a key=${item._id} id="del"></a>
                     </li>
                 `
             }).join('')}
