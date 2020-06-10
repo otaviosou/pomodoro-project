@@ -5,7 +5,7 @@ import {Time} from '../model/Time'
 import {TimeDao} from '../dao/TimeDao'
 
 
-export class Controller{
+export default class Controller{
 
     constructor(){
 
@@ -16,7 +16,7 @@ export class Controller{
             minutes : 25,
             seconds : 0
         }
-        this.timeResultView = new TimeResultView(document.querySelector('#times'))
+        this.timeResultView = new TimeResultView(document.querySelector('#times ul'))
         if (localStorage.length !=0 ) TimeDao.show()
             .then(list => {
                 this.timeResultView.update(list)
@@ -26,8 +26,7 @@ export class Controller{
 
     play() {
 
-        let controllsView = new ControllsView(document.querySelector('#controlls'))
-        controllsView.update('play')
+        ControllsView.render('play')
         const minutes = Number(document.querySelector('#time #minutes').innerText)
         const seconds = Number(document.querySelector('#time #seconds').innerText)
 
@@ -64,16 +63,14 @@ export class Controller{
 
     pause(){
 
-        let controllsView = new ControllsView(document.querySelector('#controlls'))
-        controllsView.update('pause')
+        ControllsView.render('pause')
         this.count = clearInterval(this.count)
 
     }
 
     stop(){
 
-        let controllsView = new ControllsView(document.querySelector('#controlls'))
-        controllsView.update('stop')
+        ControllsView.render('stop')
         TimeDao.store(this.time)
             .then(getList => this.timeResultView.update(getList))
 
@@ -87,10 +84,9 @@ export class Controller{
         audio.play()
     }
  
-    del(event){
+    clear(){
 
-        let id = event.target.getAttribute('key')
-        TimeDao.destroy(id)
+        TimeDao.destroy()
             .then(list => {
                 this.timeResultView.update(list)
             })

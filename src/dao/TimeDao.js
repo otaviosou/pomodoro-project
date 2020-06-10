@@ -24,13 +24,12 @@ export class TimeDao{
         })
     }
 
-    static destroy(id){
+    static destroy(){
 
         return new Promise((res, rej) => {
 
-            let newList = JSON.parse(localStorage.getList).filter(item => item._id != id)
-            localStorage.setItem('getList', JSON.stringify(newList))
-            res(newList)
+            localStorage.clear()
+            res([])
             
         })
     }

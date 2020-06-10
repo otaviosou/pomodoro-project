@@ -1,55 +1,39 @@
-import {View} from '../view/View'
-import play from '../img/play.svg'
-import pause from '../img/pause.svg'
-import stop from '../img/stop.svg'
+export class ControllsView{
 
-export class ControllsView extends View{
-
-    constructor(element){
-
-        super(element)
-    }
-
-    _template(model){
+    static render(model){
 
         const classToggle = 'invisible'
 
         let arrayTags = [
             {
-                id: 'play',
-                tagClass: '',
-                btn: play
+                name: 'play',
+                id: document.querySelector('#play')
             }, 
             {
-                id: 'pause',
-                tagClass: '',
-                btn: pause
-            }, {
-                id: 'stop',
-                tagClass: '',
-                btn: stop
-            }
+                name: 'pause',
+                id: document.querySelector('#pause')
+            },             {
+                name: 'stop',
+                id: document.querySelector('#stop')
+            }, 
         ]
+
+        arrayTags.map(item => {
+
+            item.id.classList.remove(classToggle)
+        })
+
 
         if(model === 'stop'){
             arrayTags.map(item => {
-                item.id === 'pause'? item.tagClass = `class=${classToggle}` : item.tagClass
+                item.name === 'pause'? item.id.classList.add(classToggle) : item.id
             })
         }
 
         arrayTags
-            .filter(item => item.id === model)
-            .map(element => element.tagClass = `class=${classToggle}`)
-
-
-        return `
-            ${arrayTags.map(item => {
-                return `
-                    <a id=${item.id} onclick="controller.${item.id}.bind(controller)" ${item.tagClass}>
-                        <img src=${item.btn} alt="">
-                    </a> 
-                `
-            }).join('')}
-        `
+            .filter(item => item.name === model)
+            .map(element => element.id.classList.add(classToggle))
     }
+
+
 }
