@@ -1,5 +1,5 @@
 import {View} from '../view/View'
-import '../img/del.svg'
+import { TimeDao } from '../dao/TimeDao'
 
 
 export class TimeResultView extends View{
@@ -10,12 +10,8 @@ export class TimeResultView extends View{
     }
 
     _template(model){
-
-
+        
         return `
-        <header>
-            <h2>History</h2>
-        </header>
         <ul>
             ${model.map(item => {
 
@@ -37,12 +33,13 @@ export class TimeResultView extends View{
                             <span>${min < 10 ? 0 : ''}${min}:${sec < 10 ? 0 : ''}${sec}</span>
                             <div id="progress-bar" style="width: ${percent}%;"></div>
                         </div>
-                        <a key=${item._id} id="del"></a>
                     </li>
                 `
             }).join('')}
         </ul>
         `
     }
+
+
 
 }

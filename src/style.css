@@ -44,6 +44,20 @@ section #timer #time {
     border: 1px solid rgb(39, 39, 39);
 }
 
+#times header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(25, 25, 25);
+    border-bottom: 1px solid rgb(39, 39, 39);
+}
+
+#times header img {
+
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 ul{
     padding: 20px;
     list-style-position: inside;
@@ -53,9 +67,7 @@ ul{
 header h2 {
 
     padding: 10px;
-    background-color: rgb(25, 25, 25);
     font-size: 14px;
-    border-bottom: 1px solid rgb(39, 39, 39);
 }
 
 ul li {
@@ -76,12 +88,6 @@ li:hover{
 }
 
 
-ul li a {
-    background-image: url('./img/del.svg');
-    width: 14px;
-    height: 14px;
-    margin-left: 15px;
-}
 
 #controlls{
 

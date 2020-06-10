@@ -16,7 +16,7 @@ export default class Controller{
             minutes : 25,
             seconds : 0
         }
-        this.timeResultView = new TimeResultView(document.querySelector('#times'))
+        this.timeResultView = new TimeResultView(document.querySelector('#times ul'))
         if (localStorage.length !=0 ) TimeDao.show()
             .then(list => {
                 this.timeResultView.update(list)
@@ -84,10 +84,9 @@ export default class Controller{
         audio.play()
     }
  
-    del(event){
+    clear(){
 
-        let id = event.target.getAttribute('key')
-        TimeDao.destroy(id)
+        TimeDao.destroy()
             .then(list => {
                 this.timeResultView.update(list)
             })
