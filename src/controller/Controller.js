@@ -39,9 +39,7 @@ export default class Controller{
 
                     
                     this.sound()
-                    if(this.pomodoro.minutes === 25) this.pomodoro.minutes = 5
-                    else this.pomodoro.minutes = 25
-
+                    this.pomodoro.minutes = 25
                     this.stop()
                     clearInterval(this.count)
                     

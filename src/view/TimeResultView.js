@@ -16,7 +16,7 @@ export class TimeResultView extends View{
             ${model.map(item => {
 
                 let pomodoro = 25 * 60
-                let min, sec
+                let min, sec, percent
                 
                 if (item._minutes === 0 && item._seconds === 0) min = 25
                 else min = item._minutes !=0 ? (pomodoro - (item._minutes * 60) ) / 60 - 1 : 0
@@ -25,7 +25,7 @@ export class TimeResultView extends View{
 
                 if (item._minutes != 0 && item._seconds === 0) min++
 
-                let percent = (min * 60 + sec) * 0.06
+                percent = (min * 60 + sec) * 0.08
 
                 return `
                     <li>
